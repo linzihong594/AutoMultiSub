@@ -11,14 +11,14 @@ def get_style_string():
     # 调整字间距：默认 0。如果是正数，字会散开；如果是负数（如 -1），字会紧凑
     measured_spacing = 1.0       
 
-    # 更改字体：使用 "Microsoft YaHei" (微软雅黑) 完美兼容中日文字符
-    font_name = "Microsoft YaHei" 
+    # 更改字体：
+    font_name = "King Gothic"   # 使用华康金刚黑（剪映“系统”字体，禁止商用！！！）
 
     # =====================================================================
     # 🤖 2. 自动坐标系转换 (你不需要管这里)
     # 将你的 720p 数值自动翻译为 FFmpeg 底层的 288p 微型坐标系
     # =====================================================================
-    scale = 288 / 1280.0
+    scale = 288 / 1280.0 
     
     ass_fontsize = max(1, int(measured_fontsize * scale))
     ass_margin_v = int(measured_margin_v * scale)
