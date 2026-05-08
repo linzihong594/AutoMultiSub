@@ -10,7 +10,7 @@ def get_style_string():
     measured_spacing = 1.0       
 
     # 字体源（华康金刚黑）
-    font_name = "DFP King Gothic GB" 
+    font_name = "DFP King Gothic GB Semibold" 
 
     # =====================================================================
     # 🌟 2. 阴影系统 (新增)
