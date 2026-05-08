@@ -9,8 +9,8 @@ def get_style_string():
     measured_outline = 3.5       
     measured_spacing = 1.0       
 
-    # 字体（思源黑体）
-    font_name = "Source Han Sans SC Heavy" 
+    # 字体源（华康金刚黑）
+    font_name = "DFP King Gothic GB" 
 
     # =====================================================================
     # 🌟 2. 阴影系统 (新增)
