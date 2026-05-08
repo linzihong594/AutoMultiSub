@@ -10,7 +10,7 @@ def get_style_string():
     measured_spacing = 1.0       
 
     # 字体（思源黑体）
-    font_name = "Source Han Sans Heavy" 
+    font_name = "Source Han Sans SC Heavy" 
 
     # =====================================================================
     # 🌟 2. 阴影系统 (新增)
