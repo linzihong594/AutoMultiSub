@@ -2,47 +2,58 @@
 
 def get_style_string():
     # =====================================================================
-    # 🎨 1. 请在这里直接填入你量出来的真实 720p 尺寸！
+    # 🎨 1. 基础排版数值
     # =====================================================================
-    measured_fontsize = 45       # 你的字号
-    measured_margin_v = 405      # 你的底部边距
-    measured_outline = 3.5       # 你的描边粗细
-    
-    # 调整字间距：默认 0。如果是正数，字会散开；如果是负数（如 -1），字会紧凑
+    measured_fontsize = 45       
+    measured_margin_v = 405      
+    measured_outline = 3.5       
     measured_spacing = 1.0       
 
-    # 更改字体：
-    font_name = "King Gothic"   # 使用华康金刚黑（剪映“系统”字体，禁止商用！！！）
+    # 字体（思源黑体）
+    font_name = "Source Han Sans Heavy" 
 
     # =====================================================================
-    # 🤖 2. 自动坐标系转换 (你不需要管这里)
-    # 将你的 720p 数值自动翻译为 FFmpeg 底层的 288p 微型坐标系
+    # 🌟 2. 阴影系统 (新增)
     # =====================================================================
-    scale = 288 / 1280.0 
+    # measured_shadow: 阴影向右下的偏移量。设为 0 就是没阴影，设为 3-5 会有明显的投影
+    measured_shadow = 0 
+    
+    # 阴影颜色 (BackColour)：格式为 &H[透明度][蓝][绿][红]
+    # &H00000000 是纯黑不透明；&H80000000 是半透明纯黑 (剪映默认感觉)
+    shadow_color = "&H80000000"
+
+    # =====================================================================
+    # 🤖 3. 自动坐标系转换 
+    # =====================================================================
+    scale = 288 / 1280.0
     
     ass_fontsize = max(1, int(measured_fontsize * scale))
     ass_margin_v = int(measured_margin_v * scale)
     ass_outline = max(0, round(measured_outline * scale, 1))
     ass_spacing = round(measured_spacing * scale, 1)
+    
+    # 阴影也需要等比缩小
+    ass_shadow = round(measured_shadow * scale, 1)
 
-    # 颜色配置 (&H00BBGGRR)
     primary_color = "&H00FFFFFF" 
     outline_color = "&H00000000"
-    alignment = 2 # 底部居中
+    alignment = 2
 
     # =====================================================================
-    # 3. 组装为 FFmpeg 认识的最终格式
+    # 4. 组装最终格式
     # =====================================================================
     styles = [
         f"Fontname={font_name}",
         f"Fontsize={ass_fontsize}",
         f"PrimaryColour={primary_color}",
         f"OutlineColour={outline_color}",
+        f"BackColour={shadow_color}",  # 【新增】指定阴影颜色
         f"Outline={ass_outline}",
-        "Shadow=0",
+        f"Shadow={ass_shadow}",        # 【修改】激活阴影偏移
         f"Alignment={alignment}",
         f"MarginV={ass_margin_v}",
-        f"Spacing={ass_spacing}"
+        f"Spacing={ass_spacing}",
+        "BorderStyle=1"                # 确保是正常的描边模式
     ]
     
     return ",".join(styles)
