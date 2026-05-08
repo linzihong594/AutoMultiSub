@@ -48,7 +48,7 @@ def run_pipeline(project_name, episode_name):
 
 if __name__ == "__main__":
     # 项目配置信息
-    PROJECT_NAME = "Bride for Rent, Queen for Real"
+    PROJECT_NAME = "示例剧集"  # 这里填剧名
     
     # 这里只需要填集数名！
     # 确保你的 raw-data 文件夹里同时有 "EP01.srt" 和 "EP01.mp4"
