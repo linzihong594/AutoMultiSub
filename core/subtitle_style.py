@@ -9,14 +9,14 @@ def get_style_string():
     measured_outline = 3.5       
     measured_spacing = 1.0       
 
-    # 字体源（华康金刚黑）
-    font_name = "DFP King Gothic GB Semibold" 
+    # 字体源
+    font_name = "Segoe UI Semibold" 
 
     # =====================================================================
     # 🌟 2. 阴影系统 (新增)
     # =====================================================================
     # measured_shadow: 阴影向右下的偏移量。设为 0 就是没阴影，设为 3-5 会有明显的投影
-    measured_shadow = 4.0 
+    measured_shadow = 0 
     
     # 阴影颜色 (BackColour)：格式为 &H[透明度][蓝][绿][红]
     # &H00000000 是纯黑不透明；&H80000000 是半透明纯黑 (剪映默认感觉)
